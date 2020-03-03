@@ -1,0 +1,42 @@
+/* style sheet for the website http://ash.xanthia.com */
+/* created October 7 2001 by ash@xanthia.com */
+/* last modified December 28 2002 by ash@xanthia.com */
+
+body { background: black; background-image: none; color: blue; font-size: 12pt; font-family: Arial, Helvetica, Geneva }
+H2  { font-family: Arial, Helvetica, Geneva }
+H3  { font-family: Arial, Helvetica, Geneva }
+H4     { font-family: Arial, Helvetica, Geneva }
+H5  { font-family: Arial, Helvetica, Geneva }
+p     { font-size: 12pt; font-family: Arial, Helvetica, Geneva }
+li    { font-size: 12pt; font-family: Arial, Helvetica, Geneva }
+table     { font-size: 12pt; font-family: Arial, Helvetica, Geneva }
+a:link  { color: #808080 }
+a:visited { color: #008080 }
+a:active { color: #800080 }
+input {background: silver; color: black}
+.block-indent   { margin-left: 40pt }
+.dbl-indent   { margin-left: 40pt; margin-right: 40pt }
+.bq-indent   { margin-right: 15px; margin-left: 20px }
+.item-title { text-align: center; color: #f00; font-weight: bold; font-size: 12pt; font-family: Arial, Helvetica, Geneva }
+.item-title-left { text-align: left; color: #f00; font-weight: bold; font-size: 12pt; font-family: Arial, Helvetica, Geneva }
+.item-title-right { text-align: right; color: #f00; font-weight: bold; font-size: 12pt; font-family: Arial, Helvetica, Geneva }
+.page-title { text-align: center; color: #f00; font-weight: bold; font-size: 14pt; font-family: Arial, Helvetica, Geneva }
+.ash-footnote { font-size: 10pt; font-family: Arial, Helvetica, Geneva }
+.ash-poem { color: #00f; text-align: center; font-size: 12pt; font-family: Arial, Helvetica, Geneva }
+.ash-poem-left { color: #00f; text-align: left; font-size: 12pt; font-family: Arial, Helvetica, Geneva }
+.ash-poem-right { color: #00f; text-align: right; font-size: 12pt; font-family: Arial, Helvetica, Geneva }
+.info-header { text-align: left; color: #ff0; text-decoration: underline; font-size: 12pt; font-family: Arial, Helvetica, Geneva }
+.part-header { text-align: left; color: #ff0; font-size: 12pt; font-family: Arial, Helvetica, Geneva }
+.part-footer { text-align: left; color: #ff0; font-size: 12pt; font-family: Arial, Helvetica, Geneva }
+.emphatic    { font-size: 12pt; color: #ff0000; font-style: italic }
+.date-footer { font-size: 8pt; color: #0000ff; font-style: italic; text-align: right }
+.bottom-quote { font-size: 12pt; color: #f00; text-align: center }
+.bottom-q-sig { font-size: 12pt; color: #f00; text-align: right }
+.poem-sig { font-size: 12pt; color: #0000ff; font-style: italic; text-align: right }
+.divider-line { width: 30%; color: #C0C0C0 }
+.bright-quote { font-size: 12pt; color: #33bbff }
+.irc-section-header {  color: #FF00FF}
+.text   { font-size: 12pt; font-family: Arial, Helvetica, Geneva }
+.main { font-size: 12pt; font-family: Arial, Helvetica, Geneva; color:white }
+
+

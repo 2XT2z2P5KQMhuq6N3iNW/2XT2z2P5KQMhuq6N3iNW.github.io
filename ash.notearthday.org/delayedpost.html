@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+
+
+<!-- Mirrored from ash.notearthday.org/delayedpost.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 21 Feb 2020 13:43:09 GMT -->
+<head>
+<title>ashweb techtips: Posting a delayed USENET message with LINUX</title>
+<meta NAME="Author" CONTENT="Coffee">
+<meta NAME="Classification" CONTENT="USENET newsgroup-related website">
+<meta NAME="Description" CONTENT="How to post a message to USENET after you're dead">
+<meta NAME="KeyWords" CONTENT="ash, a.s.h, suicide,alt.suicide.holiday, LINUX, posting to USENET, posthumously">
+<meta NAME="Copyright" CONTENT="content copyright (c)1999 or as otherwise marked by author.  Page design and compilation rights copyright (c)1997-1999 by ash@xanthia.com.">
+<meta NAME="ROBOTS" CONTENT="NOARCHIVE">
+</head>
+
+<body TEXT="#0000FF" BGCOLOR="#000000" LINK="#B020B0" VLINK="#800000" ALINK="#FF0000">
+<div align="center"><center>
+
+<table BORDER="0" WIDTH="100%" BGCOLOR="#000000">
+  <tr>
+    <td WIDTH="35%"></td>
+    <td WIDTH="30%"></td>
+    <td WIDTH="35%"><a HREF="ashnazg.html"><img SRC="images/ashsml.gif" HEIGHT="30" WIDTH="133" ALIGN="RIGHT" BORDER="0" ALT="ASH"> </a></td>
+  </tr>
+  <tr>
+    <td><a HREF="deathtech.html"><img SRC="images/nazgback.gif" HEIGHT="35" WIDTH="70" ALIGN="LEFT" BORDER="0" ALT="back"> </a></td>
+    <td></td>
+    <td><a HREF="deathtech.html"><img SRC="images/nazgforw.gif" HEIGHT="35" WIDTH="70" ALIGN="RIGHT" BORDER="0" ALT="next"> </a></td>
+  </tr>
+</table>
+</center></div>
+
+<p>
+First, you need a Linux shell account.  If you have a non-Linux
+shell, a lot of this is probably applicable, but I'm only aiming
+for testing under Linux.  I am aiming this at someone who knows
+the very basics.  I assume you have and use tcsh on your system.
+Most systems have it (to check, 'which tcsh' , if you have it, 
+then 'chsh' enter your password, and type in the path that
+which told you lead to tcsh).  anytime when in a list of "things
+you should type" and there is a Ctrl_X that means you should push
+'X' while holding the control key... tough stuff, huh?</p><p>
+
+Now, you have a shell account, next you need to be able to post
+news.  Download&nbsp; <a href="http://metalab.unc.edu/pub/Linux/system/news/transport/suck-4.2.1.tar.gz">http://metalab.unc.edu/pub/Linux/system/news/transport/suck-4.2.1.tar.gz&nbsp;</a>
+and type</p>
+<pre>
+<font color="#FFFF00">tar -zxf suck-4.2.1.tar.gz
+cd suck-4.2.1
+./configure &amp;&amp; make
+mkdir ~/bin
+cp rpost ~/bin/.</font>
+</pre>
+make sure that ~/bin is in your path.  To do this, type
+'echo $PATH'  If you don't know how to
+then do
+<pre>
+<font color="#FFFF00">cat &gt;&gt; ~/.tcshrc
+set path=( . ~/bin /usr/local/bin /bin /usr/bin /usr/X11/bin \
+/usr/sbin /sbin )
+ctrl_d
+exec tcsh
+</font></pre>
+you should have no problems... if so, learn how to fix your shell on your
+own... if you really don't want to do that, then simply replace
+'cat > ~/.tcshrc' for 'cat >> ~/.tcshrc' (hint: look at the number
+of "greater than" signs...) ... if you still have problems, get a
+working version of tcsh/fix /etc/csh.login ... I'm not gonna
+mess with an already non-working system<p>
+
+now that you have rpost working, it is now time to write your bye-bye
+note to ash.  Use whatever text editor you want, or simply
+'cat > goodbye' followed by your text and a Ctrl_d .  You must stick
+to a certain form for your article.  Below is example text</p>
+<pre>
+----------------------------
+From: you@whereever.com
+Newsgroups: alt.suicide.holiday
+Organization: Mt. Dew worshipers of america
+Subject: fill in subject here
+
+How you simply place your message, and sign it...
+
+    -c
+---------------------------
+</pre>
+<p>
+of course, you change the fields after From: to your liking... you must
+have a Subject: and Newsgroups: (and I think a From: though i'm not sure). 
+</p><p>how about a test message... replace alt.suicide.holiday with alt.test (do not use
+a valid From: unless you like lots of spam) and save it as outfile.
+Then type <pre><font color="#FFFF00">rpost [your news server] &lt; outfile</font></pre> (feel free to switch
+file names) where you replace the contents of the bracketed statement
+(including the brackets) with the name of your news server.  For me, my
+nntp server is called 'news' and thus I do 'rpost news < outfile  Go make sure
+that everything posted right.  As this works for me, I will assume it
+works for you.&nbsp;<p>
+Now, we know that your command works, now we have to work thru the
+wonders of cron.  Let's double check that you *have* cron.  Type
+<pre><font color="#FFFF00">crontab -l</font></pre>It should return something like 'no crontab for coffee' or
+whatever your username is.  You should now edit a file, and make it
+follow this form
+<pre>
+<font color="#FFFF00">Min hour day month * /home/username/bin/myfoo
+</font></pre>
+where in this case /home/username/bin/myfoo is a file with the contents
+<pre>
+<font color="#FFFF00">#!/bin/tcsh
+/home/username/bin/rpost news &lt; /home/username/outfile
+</font></pre>
+where outfile is the file you wish to send.  Note that you must make
+myfoo executable. To do this type <pre><font color="#FFFF00">chmod 755 myfoo</font></pre> in the same directory
+as myfoo.  Ok, how about editing outfile to go to alt.test, and then
+try <pre><font color="#FFFF00">exec tcsh;myfoo</font></pre> this should post a message to alt.test.  make
+sure that you get it.  Now, lets say that it I want to send a test
+message on 5/27 at 1:50 then the file 'cron' would look like
+<pre>
+<font color="#FFFF00">50 1 27 5 * ~coffee/bin/myfoo
+</font></pre>
+then one would simply run <pre><font color="#FFFF00">crontab cron</font></pre> and then wait until 1:50
+and make sure that the post was actually sent.  By simply changing
+file names around, hopefully this should make it easy to send a delayed
+news posting.<p>
+
+Everything that I've said works perfectly well for me.  The system
+that this was tested on was based of slackware 3.2</p><p align="right">
+
+<i>-Coffee</i></p>
+
+<p align="right"><small><small><em>Last update: <!--webbot bot="Timestamp" S-Type="EDITED" S-Format="%A, %B %d, %Y %H:%M" startspan -->Sunday, June 20, 1999 14:36<!--webbot bot="Timestamp" endspan i-checksum="39183" --></em></small></small></p>
+
+<hr>
+<div align="center"><center>
+
+<table BORDER="0" WIDTH="100%" BGCOLOR="#000000">
+  <tr>
+    <td WIDTH="35%"></td>
+    <td WIDTH="30%"></td>
+    <td WIDTH="35%"></td>
+  </tr>
+  <tr>
+    <td><a HREF="deathtech.html"><img SRC="images/nazgback.gif" HEIGHT="35" WIDTH="70" ALIGN="LEFT" BORDER="0" ALT="back"> </a></td>
+    <td></td>
+    <td><a HREF="deathtech.html"><img SRC="images/nazgforw.gif" HEIGHT="35" WIDTH="70" ALIGN="RIGHT" BORDER="0" ALT="next"> </a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+
+<!-- Mirrored from ash.notearthday.org/delayedpost.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 21 Feb 2020 13:43:09 GMT -->
+</html>
+
