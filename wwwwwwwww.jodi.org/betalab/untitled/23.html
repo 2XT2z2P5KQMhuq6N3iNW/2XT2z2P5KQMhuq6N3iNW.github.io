@@ -1,0 +1,70 @@
+<HTML>
+
+<!-- Mirrored from wwwwwwwww.jodi.org/betalab/untitled/23.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 28 Jun 2021 01:39:38 GMT -->
+<HEAD>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var timerID = null
+var timerRunning = false
+function stopclock(){
+    // cannot directly test timerID on DEC OSF/1 in beta 4.
+    if(timerRunning)
+        clearTimeout(timerID)
+    timerRunning = false
+}
+function startclock(){
+     // Make sure the clock is stopped
+    stopclock()
+    showtime()
+}
+function showtime(){
+    var now = new Date()
+    var hours = now.getHours()
+    var minutes = now.getMinutes()
+    var seconds = now.getSeconds()
+    var timeValue = "" + ((hours > 12) ? hours - 12 : hours)
+    timeValue  += ((minutes < 10) ? ":0" : ":") + minutes
+    timeValue  += ((seconds < 10) ? ":0" : ":") + seconds
+    timeValue  += (hours >= 12) ? " P.M." : " A.M."
+    document.clock.face.value = timeValue 
+    timerID = setTimeout("showtime()",1000)
+    timerRunning = true
+}
+//-->
+</SCRIPT>
+<title> _ </title></HEAD>
+<body BGCOLOR="#cccccc" background="p/p23.jpg" link="#000000" vlink="#000000" alink="#ffffff" onLoad="startclock()">
+
+<FORM NAME="clock" onSubmit="0"><INPUT TYPE="text" NAME="face" SIZE=12 VALUE =""></FORM>
+<center>
+<PRE><FORM>                                   <INPUT TYPE="radio" name="nextpage" value="1.html" onClick="location.replace('1.html')">
+
+<INPUT TYPE="radio"  name="nextpage" value="2.html" onClick="location.replace('2.html')">                                       <INPUT TYPE="radio"  name="nextpage" value="3.html" onClick="location.replace('3.html')">            <INPUT TYPE="radio"  name="nextpage" value="4.html" onClick="location.replace('4.html')">
+                                      <INPUT TYPE="radio"  name="nextpage" value="5.html" onClick="location.replace('5.html')">
+
+<INPUT TYPE="radio"  name="nextpage" value="6.html" onClick="location.replace('6.html')">      <INPUT TYPE="radio"  name="nextpage" value="7.html" onClick="location.replace('7.html')">                    <INPUT TYPE="radio"  name="nextpage" value="8.html" onClick="location.replace('8.html')">
+
+              <INPUT TYPE="radio" name="nextpage" value="9.html" onClick="location.replace('9.html')">  <INPUT TYPE="radio" name="nextpage" value="10.html" onClick="location.replace('10.html')">
+<INPUT TYPE="radio" name="nextpage" value="11.html" onClick="location.replace('11.html')">                                                             <INPUT TYPE="radio" name="nextpage" value="12.html" onClick="location.replace('12.html')">     
+    
+             <INPUT TYPE="radio" name="nextpage" value="13.html" onClick="location.replace('13.html')">                 <INPUT TYPE="radio" name="nextpage" value="14.html" onClick="location.replace('14.html')">
+<INPUT TYPE="radio" name="nextpage" value="15.html" onClick="location.replace('15.html')">
+<INPUT TYPE="radio" name="nextpage" value="16.html" onClick="location.replace('16.html')">                      <INPUT TYPE="radio" name="nextpage" value="17.html" onClick="location.replace('17.html')">            <INPUT TYPE="radio" name="nextpage" value="18.html" onClick="location.replace('18.html')">               
+
+<INPUT TYPE="radio" name="nextpage" value="19.html" onClick="location.replace('19.html')">   <INPUT TYPE="radio" name="nextpage" value="20.html" onClick="location.replace('20.html')">                       
+<INPUT TYPE="radio" name="nextpage" value="21.html" onClick="location.replace('21.html')">         <INPUT TYPE="radio" name="nextpage" value="22.html" onClick="location.replace('22.html')">                             <INPUT TYPE="radio" name="nextpage" value="23.html" CHECKED onClick="location.replace('23.html')"> 
+
+<INPUT TYPE="radio" name="nextpage" value="24.html" onClick="location.replace('24.html')">          
+<INPUT TYPE="radio" name="nextpage" value="25.html" onClick="location.replace('25.html')">     <INPUT TYPE="radio" name="nextpage" value="26.html" onClick="location.replace('26.html')">             
+<INPUT TYPE="radio" name="nextpage" value="27.html" onClick="location.replace('27.html')">         <INPUT TYPE="radio" name="nextpage" value="28.html" onClick="location.replace('28.html')">                                                               <INPUT TYPE="radio" name="nextpage" value="29.html" onClick="location.replace('29.html')">
+
+<INPUT TYPE="radio" name="nextpage" value="30.html" onClick="location.replace('30.html')">                                                       
+</form></center>
+
+
+
+
+
+</pre></body>
+<!-- Mirrored from wwwwwwwww.jodi.org/betalab/untitled/23.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 28 Jun 2021 01:39:38 GMT -->
+</HTML>
