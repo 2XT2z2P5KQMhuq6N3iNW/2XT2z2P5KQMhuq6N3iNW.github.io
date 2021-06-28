@@ -2,21 +2,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <base target="myIframe" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
-  /* Password Protection Script by www.bloggerspice.com*/
-  if (sessionStorage.getItem('key') != 'f') {
-    var password = 'f'
-    password = prompt('PW ACCESS:', '');
-    if (password == 'f') {
-      sessionStorage.setItem('key', 'f');
-    }
-    if (password != 'f') {
-      location.href = 'https://google.com/';
-    }
-  }
-
-</script>
-
 <style>
     html {
     height: 100%;
